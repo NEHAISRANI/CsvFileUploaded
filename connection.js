@@ -1,10 +1,11 @@
-var  knex = require ("knex")({
+require('dotenv').config()
+var knex = require('knex')({
     client: 'mysql',
-    connection:{
-        host: "127.0.0.1",
-        user: "root",
-        password: "password",
-        database: "employeeDetails"
+    connection: {
+      host : process.env.DB_HOST,
+      user : process.env.DB_USER, 
+      password : process.env.DB_PASS,
+      database : process.env.DB_NAME
     }
-})
-module.exports = (knex)
+  }); 
+module.exports = knex ;
